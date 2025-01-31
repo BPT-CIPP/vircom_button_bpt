@@ -4,8 +4,8 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
   xsi:type="MailApp">
-  <Id>93423392-a225-4fbc-892c-485e6aeaf0e7</Id>
-  <Version>2.5.58.104</Version>
+  <Id>8a45c59c-3e3c-4fe8-a196-468ade14ad3c</Id>
+  <Version>1.5.58.100</Version>
   <ProviderName>Bastionpoint</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Report to Bastionpoint"/>
