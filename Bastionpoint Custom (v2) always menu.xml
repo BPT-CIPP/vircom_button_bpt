@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+  xsi:type="MailApp">
+  <Id>aa359047-2cb6-4df0-a11b-92c985ff115f</Id>
+  <Version>2.5.58.104</Version>
+  <ProviderName>Bastionpoint</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Report to Bastionpoint"/>
+  <Description DefaultValue="Custom Manifest for BPT"/>
+  <IconUrl DefaultValue="https://bastionpoint.com/wp-content/uploads/2024/07/Bastionpoint-64x64-1.png"/>
+  <HighResolutionIconUrl DefaultValue="https://bastionpoint.com/wp-content/uploads/2024/07/Bastionpoint-64x64-1.png"/>
+  <SupportUrl DefaultValue="https://www.vircom.com/support"/>
+  <AppDomains>
+    <AppDomain>https://login.microsoftonline.com</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://spam-reporter.com/taskpane.html"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteMailbox</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <!-- VersionOverrides for the v1.1 schema -->
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.5">
+          <bt:Set Name="Mailbox" />
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+			<SupportsSharedFolders>true</SupportsSharedFolders>
+            <FunctionFile resid="Commands.Url" />
+            <ExtensionPoint xsi:type="DetectedEntity">
+              <Label resid="contextLabel" />
+              <SourceLocation resid="detectedEntityURL" />
+              <Rule xsi:type="RuleCollection" Mode="And">
+               <Rule xsi:type="ItemIs" ItemType="Message" />
+               <Rule xsi:type="ItemHasRegularExpressionMatch" RegExName="confirmidentity" RegExValue="Confirm your Identity" PropertyName="BodyAsPlaintext"/>
+             </Rule>
+            </ExtensionPoint>
+			<ExtensionPoint xsi:type="MessageReadCommandSurface">
+			  <OfficeTab id="TabDefault">
+				<Group id="msgReadGroup">
+				  <Label resid="GroupLabel" />
+				  <Control xsi:type="Menu" id="msgReadMenu">
+					<Label resid="ActionMenu.Label" />
+					<Supertip>
+					  <Title resid="ActionMenu.Label" />
+					  <Description resid="ActionMenu.Tooltip" />
+					</Supertip>
+					<Icon>
+					  <bt:Image size="16" resid="BPT" />
+					  <bt:Image size="32" resid="BPT" />
+					  <bt:Image size="80" resid="BPT" />
+					</Icon>
+					<Items>
+					  <Item id="msgReadOpenPaneButton">
+						<Label resid="GoToWebQT.Label" />
+						<Supertip>
+						  <Title resid="GoToWebQT.Label" />
+						  <Description resid="GoToWebQT.Tooltip" />
+						</Supertip>
+						<Icon>
+						  <bt:Image size="16" resid="GoToQuarantine.16x16" />
+						  <bt:Image size="32" resid="GoToQuarantine.32x32" />
+						  <bt:Image size="80" resid="GoToQuarantine.80x80" />
+						</Icon>
+						<Action xsi:type="ExecuteFunction">
+						  <FunctionName>goToWebQT</FunctionName>
+						</Action>
+					  </Item>
+					  <Item id="ReportSpam">
+						<Label resid="ReportSpam.Label" />
+						<Supertip>
+						  <Title resid="ReportSpam.Label" />
+						  <Description resid="ReportSpam.Tooltip" />
+						</Supertip>
+						<Icon>
+						  <bt:Image size="16" resid="ReportSpam.16x16" />
+						  <bt:Image size="32" resid="ReportSpam.32x32" />
+						  <bt:Image size="80" resid="ReportSpam.80x80" />
+						</Icon>
+						<Action xsi:type="ExecuteFunction">
+						  <FunctionName>reportSpam</FunctionName>
+						</Action>
+					  </Item>
+					  <Item id="BlockButton">
+						<Label resid="BlockButton.Label" />
+						<Supertip>
+						  <Title resid="BlockButton.Label" />
+						  <Description resid="BlockButton.Tooltip" />
+						</Supertip>
+						<Icon>
+						  <bt:Image size="16" resid="BlockButton.16x16" />
+						  <bt:Image size="32" resid="BlockButton.32x32" />
+						  <bt:Image size="80" resid="BlockButton.80x80" />
+						</Icon>
+						<Action xsi:type="ExecuteFunction">
+						  <FunctionName>blockSender</FunctionName>
+						</Action>
+					  </Item>
+					  <Item id="TrustButton">
+						<Label resid="TrustButton.Label" />
+						<Supertip>
+						  <Title resid="TrustButton.Label" />
+						  <Description resid="TrustButton.Tooltip" />
+						</Supertip>
+						<Icon>
+						  <bt:Image size="16" resid="TrustButton.16x16" />
+						  <bt:Image size="32" resid="TrustButton.32x32" />
+						  <bt:Image size="80" resid="TrustButton.80x80" />
+						</Icon>
+						<Action xsi:type="ExecuteFunction">
+						  <FunctionName>trustSender</FunctionName>
+						</Action>
+					  </Item>
+					  <Item id="DecodeURL">
+						<Label resid="DecodeURL.Label" />
+						<Supertip>
+						  <Title resid="DecodeURL.Label" />
+						  <Description resid="DecodeURL.Tooltip" />
+						</Supertip>
+						<Icon>
+						  <bt:Image size="16" resid="DecodeURL.16x16" />
+						  <bt:Image size="32" resid="DecodeURL.32x32" />
+						  <bt:Image size="80" resid="DecodeURL.80x80" />
+						</Icon>
+						<Action xsi:type="ExecuteFunction">
+						  <FunctionName>decodeAllURL</FunctionName>
+						</Action>
+					  </Item>
+					</Items>
+				  </Control>
+				</Group>
+			  </OfficeTab>
+			</ExtensionPoint>
+            <!-- REPLACE_ENCRYPT -->
+          </DesktopFormFactor>
+          <MobileFormFactor>
+            <FunctionFile resid="Commands.Url" />
+            <ExtensionPoint xsi:type="MobileMessageReadCommandSurface">
+              <Group id="mobileMsgRead">
+                <Label resid="GroupLabel"/>
+                                <Control xsi:type="MobileButton" id="GoToWebQTMobileButton">
+                  <Label resid="GoToWebQT.Label" />
+                  <Icon xsi:type="bt:MobileIconList">
+                    <bt:Image size="25" scale="1" resid="GoToQuarantine.25x25" />
+                    <bt:Image size="32" scale="1" resid="GoToQuarantine.32x32" />
+                    <bt:Image size="48" scale="1" resid="GoToQuarantine.48x48" />
+                    <bt:Image size="25" scale="2" resid="GoToQuarantine.50x50" />
+                    <bt:Image size="32" scale="2" resid="GoToQuarantine.64x64" />
+                    <bt:Image size="48" scale="2" resid="GoToQuarantine.96x96" />
+                    <bt:Image size="25" scale="3" resid="GoToQuarantine.75x75" />
+                    <bt:Image size="32" scale="3" resid="GoToQuarantine.96x96" />
+                    <bt:Image size="48" scale="3" resid="GoToQuarantine.144x144" />
+                  </Icon>                  
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>goToWebQT</FunctionName>
+                  </Action>
+                </Control>
+
+                                <Control xsi:type="MobileButton" id="ReportSpamMobileButton">
+                  <Label resid="ReportSpam.Label" />
+                  <Icon xsi:type="bt:MobileIconList">
+                    <bt:Image size="25" scale="1" resid="ReportSpam.25x25"/>
+                    <bt:Image size="32" scale="1" resid="ReportSpam.32x32"/>
+                    <bt:Image size="48" scale="1" resid="ReportSpam.48x48"/>
+                    <bt:Image size="25" scale="2" resid="ReportSpam.50x50"/>
+                    <bt:Image size="32" scale="2" resid="ReportSpam.64x64"/>
+                    <bt:Image size="48" scale="2" resid="ReportSpam.96x96"/>
+                    <bt:Image size="25" scale="3" resid="ReportSpam.75x75"/>
+                    <bt:Image size="32" scale="3" resid="ReportSpam.96x96"/>
+                    <bt:Image size="48" scale="3" resid="ReportSpam.144x144"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>reportSpam</FunctionName>
+                  </Action>
+                </Control>
+
+                                <Control xsi:type="MobileButton" id="BlockMobileButton">
+                  <Label resid="BlockButton.Label" />
+                  <Icon xsi:type="bt:MobileIconList">
+                    <bt:Image size="25" scale="1" resid="BlockButton.25x25"/>
+                    <bt:Image size="32" scale="1" resid="BlockButton.32x32"/>
+                    <bt:Image size="48" scale="1" resid="BlockButton.48x48"/>
+                    <bt:Image size="25" scale="2" resid="BlockButton.50x50"/>
+                    <bt:Image size="32" scale="2" resid="BlockButton.64x64"/>
+                    <bt:Image size="48" scale="2" resid="BlockButton.96x96"/>
+                    <bt:Image size="25" scale="3" resid="BlockButton.75x75"/>
+                    <bt:Image size="32" scale="3" resid="BlockButton.96x96"/>
+                    <bt:Image size="48" scale="3" resid="BlockButton.144x144"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>blockSender</FunctionName>
+                  </Action>
+                </Control>
+                                <Control xsi:type="MobileButton" id="TrustMobileButton">
+                  <Label resid="TrustButton.Label" />
+                  <Icon xsi:type="bt:MobileIconList">
+                    <bt:Image size="25" scale="1" resid="TrustButton.25x25"/>
+                    <bt:Image size="32" scale="1" resid="TrustButton.32x32"/>
+                    <bt:Image size="48" scale="1" resid="TrustButton.48x48"/>
+                    <bt:Image size="25" scale="2" resid="TrustButton.50x50"/>
+                    <bt:Image size="32" scale="2" resid="TrustButton.64x64"/>
+                    <bt:Image size="48" scale="2" resid="TrustButton.96x96"/>
+                    <bt:Image size="25" scale="3" resid="TrustButton.75x75"/>
+                    <bt:Image size="32" scale="3" resid="TrustButton.96x96"/>
+                    <bt:Image size="48" scale="3" resid="TrustButton.144x144"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>trustSender</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- REPLACE_MOBILE_GOTOARCHIVE -->
+              </Group>
+            </ExtensionPoint>
+          </MobileFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+		  <bt:Image id="BPT" DefaultValue="https://bastionpoint.com/wp-content/uploads/2024/07/Bastionpoint-64x64-1.png"/>
+          <bt:Image id="GoToQuarantine.16x16" DefaultValue="https://spam-reporter.com/assets/GoToQuarantine-16.png"/>
+          <bt:Image id="GoToQuarantine.25x25" DefaultValue="https://spam-reporter.com/assets/GoToQuarantine-25.png"/>
+          <bt:Image id="GoToQuarantine.32x32" DefaultValue="https://spam-reporter.com/assets/GoToQuarantine-32.png"/>
+          <bt:Image id="GoToQuarantine.48x48" DefaultValue="https://spam-reporter.com/assets/GoToQuarantine-48.png"/>
+          <bt:Image id="GoToQuarantine.50x50" DefaultValue="https://spam-reporter.com/assets/GoToQuarantine-50.png"/>
+          <bt:Image id="GoToQuarantine.64x64" DefaultValue="https://spam-reporter.com/assets/GoToQuarantine-64.png"/>
+          <bt:Image id="GoToQuarantine.75x75" DefaultValue="https://spam-reporter.com/assets/GoToQuarantine-75.png"/>
+          <bt:Image id="GoToQuarantine.80x80" DefaultValue="https://spam-reporter.com/assets/GoToQuarantine-80.png"/>
+          <bt:Image id="GoToQuarantine.96x96" DefaultValue="https://spam-reporter.com/assets/GoToQuarantine-96.png"/>
+          <bt:Image id="GoToQuarantine.144x144" DefaultValue="https://spam-reporter.com/assets/GoToQuarantine-144.png"/>
+          <bt:Image id="BlockButton.16x16" DefaultValue="https://spam-reporter.com/assets/BlockSender-16.png"/>
+          <bt:Image id="BlockButton.25x25" DefaultValue="https://spam-reporter.com/assets/BlockSender-25.png"/>
+          <bt:Image id="BlockButton.32x32" DefaultValue="https://spam-reporter.com/assets/BlockSender-32.png"/>
+          <bt:Image id="BlockButton.48x48" DefaultValue="https://spam-reporter.com/assets/BlockSender-48.png"/>
+          <bt:Image id="BlockButton.50x50" DefaultValue="https://spam-reporter.com/assets/BlockSender-50.png"/>
+          <bt:Image id="BlockButton.64x64" DefaultValue="https://spam-reporter.com/assets/BlockSender-64.png"/>
+          <bt:Image id="BlockButton.75x75" DefaultValue="https://spam-reporter.com/assets/BlockSender-75.png"/>
+          <bt:Image id="BlockButton.80x80" DefaultValue="https://spam-reporter.com/assets/BlockSender-80.png"/>
+          <bt:Image id="BlockButton.96x96" DefaultValue="https://spam-reporter.com/assets/BlockSender-96.png"/>
+          <bt:Image id="BlockButton.144x144" DefaultValue="https://spam-reporter.com/assets/BlockSender-144.png"/>
+          <bt:Image id="TrustButton.16x16" DefaultValue="https://spam-reporter.com/assets/TrustSender-16.png"/>
+          <bt:Image id="TrustButton.25x25" DefaultValue="https://spam-reporter.com/assets/TrustSender-25.png"/>
+          <bt:Image id="TrustButton.32x32" DefaultValue="https://spam-reporter.com/assets/TrustSender-32.png"/>
+          <bt:Image id="TrustButton.48x48" DefaultValue="https://spam-reporter.com/assets/TrustSender-48.png"/>
+          <bt:Image id="TrustButton.50x50" DefaultValue="https://spam-reporter.com/assets/TrustSender-50.png"/>
+          <bt:Image id="TrustButton.64x64" DefaultValue="https://spam-reporter.com/assets/TrustSender-64.png"/>
+          <bt:Image id="TrustButton.75x75" DefaultValue="https://spam-reporter.com/assets/TrustSender-75.png"/>
+          <bt:Image id="TrustButton.80x80" DefaultValue="https://spam-reporter.com/assets/TrustSender-80.png"/>
+          <bt:Image id="TrustButton.96x96" DefaultValue="https://spam-reporter.com/assets/TrustSender-96.png"/>
+          <bt:Image id="TrustButton.144x144" DefaultValue="https://spam-reporter.com/assets/TrustSender-144.png"/>
+          <bt:Image id="ReportSpam.16x16" DefaultValue="https://spam-reporter.com/assets/ReportSpam-16.png"/>
+          <bt:Image id="ReportSpam.25x25" DefaultValue="https://spam-reporter.com/assets/ReportSpam-25.png"/>
+          <bt:Image id="ReportSpam.32x32" DefaultValue="https://spam-reporter.com/assets/ReportSpam-32.png"/>
+          <bt:Image id="ReportSpam.48x48" DefaultValue="https://spam-reporter.com/assets/ReportSpam-48.png"/>
+          <bt:Image id="ReportSpam.50x50" DefaultValue="https://spam-reporter.com/assets/ReportSpam-50.png"/>
+          <bt:Image id="ReportSpam.64x64" DefaultValue="https://spam-reporter.com/assets/ReportSpam-64.png"/>
+          <bt:Image id="ReportSpam.75x75" DefaultValue="https://spam-reporter.com/assets/ReportSpam-75.png"/>
+          <bt:Image id="ReportSpam.80x80" DefaultValue="https://spam-reporter.com/assets/ReportSpam-80.png"/>
+          <bt:Image id="ReportSpam.96x96" DefaultValue="https://spam-reporter.com/assets/ReportSpam-96.png"/>
+          <bt:Image id="ReportSpam.144x144" DefaultValue="https://spam-reporter.com/assets/ReportSpam-144.png"/>
+          <bt:Image id="GoToArchive.16x16" DefaultValue="https://spam-reporter.com/assets/GoToArchive-16.png"/>
+          <bt:Image id="GoToArchive.25x25" DefaultValue="https://spam-reporter.com/assets/GoToArchive-25.png"/>
+          <bt:Image id="GoToArchive.32x32" DefaultValue="https://spam-reporter.com/assets/GoToArchive-32.png"/>
+          <bt:Image id="GoToArchive.48x48" DefaultValue="https://spam-reporter.com/assets/GoToArchive-48.png"/>
+          <bt:Image id="GoToArchive.50x50" DefaultValue="https://spam-reporter.com/assets/GoToArchive-50.png"/>
+          <bt:Image id="GoToArchive.64x64" DefaultValue="https://spam-reporter.com/assets/GoToArchive-64.png"/>
+          <bt:Image id="GoToArchive.75x75" DefaultValue="https://spam-reporter.com/assets/GoToArchive-75.png"/>
+          <bt:Image id="GoToArchive.80x80" DefaultValue="https://spam-reporter.com/assets/GoToArchive-80.png"/>
+          <bt:Image id="GoToArchive.96x96" DefaultValue="https://spam-reporter.com/assets/GoToArchive-96.png"/>
+          <bt:Image id="GoToArchive.144x144" DefaultValue="https://spam-reporter.com/assets/GoToArchive-144.png"/>
+          <bt:Image id="DecodeURL.16x16" DefaultValue="https://spam-reporter.com/assets/DecodeURL-16.png"/>
+          <bt:Image id="DecodeURL.32x32" DefaultValue="https://spam-reporter.com/assets/DecodeURL-32.png"/>
+          <bt:Image id="DecodeURL.80x80" DefaultValue="https://spam-reporter.com/assets/DecodeURL-80.png"/>
+          <bt:Image id="Encrypt.16x16" DefaultValue="https://spam-reporter.com/assets/Encrypt-80.png"/>
+          <bt:Image id="Encrypt.32x32" DefaultValue="https://spam-reporter.com/assets/Encrypt-80.png"/>
+          <bt:Image id="Encrypt.80x80" DefaultValue="https://spam-reporter.com/assets/Encrypt-80.png"/>
+          <bt:Image id="Lock.80x80" DefaultValue="https://spam-reporter.com/assets/lock-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="Commands.Url" DefaultValue="https://spam-reporter.com/commands.html?ver=1.5.58.101&amp;rb=1" />
+          <bt:Url id="detectedEntityURL" DefaultValue="https://spam-reporter.com/index.html" />
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="GroupLabel" DefaultValue="Report to Bastionpoint"/>
+          <bt:String id="ActionButton.Label" DefaultValue=" "/>
+          <bt:String id="ReportSpam.Label" DefaultValue="Report Phishing/Malicious"/>
+          <bt:String id="TrustButton.Label" DefaultValue="Trust" />
+          <bt:String id="BlockButton.Label" DefaultValue="Block Sender (SPAM)" />
+          <bt:String id="GoToWebQT.Label" DefaultValue="Go to Quarantine" />
+          <bt:String id="ActionMenu.Label" DefaultValue="Report to Bastionpoint" />
+          <bt:String id="contextLabel" DefaultValue="Confirm Identity" />
+          <bt:String id="GoToArchive.Label" DefaultValue="Go to Archive" />
+          <bt:String id="DecodeURL.Label" DefaultValue="Decode URLs" />
+          <bt:String id="Encrypt.Label" DefaultValue="Encrypt" />
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="ActionButton.Tooltip" DefaultValue="Perform an action when clicked."/>
+          <bt:String id="ReportSpam.Tooltip" DefaultValue="Report a message as Phishing/Malicious." />
+          <bt:String id="TrustButton.Tooltip" DefaultValue="Trust the sender of the currently selected email." />
+          <bt:String id="BlockButton.Tooltip" DefaultValue="Block the sender of the currently selected spam/junk email." />
+          <bt:String id="GoToWebQT.Tooltip" DefaultValue="Open your web browser to the Web Quarantine page." />
+          <bt:String id="ActionMenu.Tooltip" DefaultValue=" " />
+          <bt:String id="GoToArchive.Tooltip" DefaultValue="Open your web browser to the Email Archive page." />
+          <bt:String id="DecodeURL.Tooltip" DefaultValue="Decode URL Defense links to show the destination." />
+          <bt:String id="Encrypt.Tooltip" DefaultValue="Encrypt the message." />
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
