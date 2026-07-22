@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
+  <Id>d582e9d9-90d5-4df6-b7dc-441642de85b2</Id>
+  <Version>1.2.0.2</Version>
+  <ProviderName>Report to Bastionpoint</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Report to Bastionpoint" />
+  <Description DefaultValue="End-user controls for the Report to Bastionpoint service. Train and tune your personal account directly from Outlook." />
+  <IconUrl DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
+  <HighResolutionIconUrl DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-128.png" />
+  <SupportUrl DefaultValue="https://spambrella.cloud-protect.net/" />
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html" />
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.3">
+        <bt:Set Name="Mailbox" />
+      </bt:Sets>
+    </Requirements>
+    <Hosts>
+      <Host xsi:type="MailHost">
+        <DesktopFormFactor>
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="msgReadGroup">
+                <Label resid="GroupLabel" />
+                <Control xsi:type="Menu" id="msgReadMenu">
+                  <Label resid="MenuLabel" />
+                  <Supertip>
+                    <Title resid="MenuLabel" />
+                    <Description resid="MenuLabel.Description" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="BPTIcon.16x16" />
+                    <bt:Image size="32" resid="BPTIcon.32x32" />
+                    <bt:Image size="80" resid="BPTIcon.80x80" />
+                  </Icon>
+                  <Items>
+                    <Item id="QuarantinePortalBtn">
+                      <Label resid="QuarantinePortalBtn.Label" />
+                      <Supertip>
+                        <Title resid="QuarantinePortalBtn.Label" />
+                        <Description resid="QuarantinePortalBtn.Description" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="PortalIcon.16x16" />
+                        <bt:Image size="32" resid="PortalIcon.32x32" />
+                        <bt:Image size="80" resid="PortalIcon.80x80" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <SourceLocation resid="QuarantinePortalBtn.Url" />
+                      </Action>
+                    </Item>
+                    <Item id="TrustBtn">
+                      <Label resid="TrustBtn.Label" />
+                      <Supertip>
+                        <Title resid="TrustBtn.Label" />
+                        <Description resid="TrustBtn.Description" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="TrustIcon.16x16" />
+                        <bt:Image size="32" resid="TrustIcon.32x32" />
+                        <bt:Image size="80" resid="TrustIcon.80x80" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <SourceLocation resid="TrustBtn.Url" />
+                      </Action>
+                    </Item>
+                    <Item id="BlockBtn">
+                      <Label resid="BlockBtn.Label" />
+                      <Supertip>
+                        <Title resid="BlockBtn.Label" />
+                        <Description resid="BlockBtn.Description" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="BlockIcon.16x16" />
+                        <bt:Image size="32" resid="BlockIcon.32x32" />
+                        <bt:Image size="80" resid="BlockIcon.80x80" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <SourceLocation resid="BlockBtn.Url" />
+                      </Action>
+                    </Item>
+                    <Item id="ReportSpamBtn">
+                      <Label resid="ReportSpamBtn.Label" />
+                      <Supertip>
+                        <Title resid="ReportSpamBtn.Label" />
+                        <Description resid="ReportSpamBtn.Description" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="ReportIcon.16x16" />
+                        <bt:Image size="32" resid="ReportIcon.32x32" />
+                        <bt:Image size="80" resid="ReportIcon.80x80" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <SourceLocation resid="ReportSpamBtn.Url" />
+                      </Action>
+                    </Item>
+                    <Item id="ViewArchiveBtn">
+                      <Label resid="ViewArchiveBtn.Label" />
+                      <Supertip>
+                        <Title resid="ViewArchiveBtn.Label" />
+                        <Description resid="ViewArchiveBtn.Description" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="ViewArchiveIcon.16x16" />
+                        <bt:Image size="32" resid="ViewArchiveIcon.32x32" />
+                        <bt:Image size="80" resid="ViewArchiveIcon.80x80" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <SourceLocation resid="ViewArchiveBtn.Url" />
+                      </Action>
+                    </Item>
+                  </Items>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="msgComposeGroup">
+                <Label resid="EncryptMessageGroup.Label" />
+                <Control xsi:type="Button" id="EncryptMessageBtn">
+                  <Label resid="EncryptMessageBtn.Label" />
+                  <Supertip>
+                    <Title resid="EncryptMessageBtn.Label" />
+                    <Description resid="EncryptMessageBtn.Description" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="EncryptMessageIcon.16x16" />
+                    <bt:Image size="32" resid="EncryptMessageIcon.32x32" />
+                    <bt:Image size="80" resid="EncryptMessageIcon.80x80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="EncryptMessageBtn.Url" />
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="QuarantinePortalBtnInCompose">
+                  <Label resid="QuarantinePortalBtn.Label" />
+                  <Supertip>
+                    <Title resid="QuarantinePortalBtn.Label" />
+                    <Description resid="QuarantinePortalBtn.Description" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="PortalIcon.16x16" />
+                    <bt:Image size="32" resid="PortalIcon.32x32" />
+                    <bt:Image size="80" resid="PortalIcon.80x80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="QuarantinePortalBtn.Url" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="BPTIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
+        <bt:Image id="BPTIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
+        <bt:Image id="BPTIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-128.png" />
+        <bt:Image id="PortalIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/portal-16.png" />
+        <bt:Image id="TrustIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/trust-16.png" />
+        <bt:Image id="BlockIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-16.png" />
+        <bt:Image id="ReportIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/report-16.png" />
+        <bt:Image id="ViewArchiveIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/view-archive-16.png" />
+        <bt:Image id="EncryptMessageIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/encrypt-message-16.png" />
+        <bt:Image id="PortalIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/portal-32.png" />
+        <bt:Image id="TrustIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/trust-32.png" />
+        <bt:Image id="BlockIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-32.png" />
+        <bt:Image id="ReportIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/report-32.png" />
+        <bt:Image id="ViewArchiveIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/view-archive-32.png" />
+        <bt:Image id="EncryptMessageIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/encrypt-message-32.png" />
+        <bt:Image id="PortalIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/portal-80.png" />
+        <bt:Image id="TrustIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/trust-80.png" />
+        <bt:Image id="BlockIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-80.png" />
+        <bt:Image id="ReportIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/report-80.png" />
+        <bt:Image id="ViewArchiveIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/view-archive-80.png" />
+        <bt:Image id="EncryptMessageIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/encrypt-message-80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="TrustBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=trust" />
+        <bt:Url id="BlockBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=block" />
+        <bt:Url id="ReportSpamBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=report&amp;reportSpamEmailAddress=report@report.spambrella.com" />
+        <bt:Url id="QuarantinePortalBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=quarantinePortal" />
+        <bt:Url id="ViewArchiveBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=viewArchive" />
+        <bt:Url id="EncryptMessageBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=encryptMessage" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GroupLabel" DefaultValue="Report to Bastionpoint" />
+        <bt:String id="EncryptMessageGroup.Label" DefaultValue="Report to Bastionpoint" />
+        <bt:String id="MenuLabel" DefaultValue="Report to Bastionpoint" />
+        <bt:String id="QuarantinePortalBtn.Label" DefaultValue="Quarantine Portal" />
+        <bt:String id="TrustBtn.Label" DefaultValue="Trust Sender" />
+        <bt:String id="BlockBtn.Label" DefaultValue="Block Sender (SPAM)" />
+        <bt:String id="ReportSpamBtn.Label" DefaultValue="Report Phishing/Malicious" />
+        <bt:String id="ViewArchiveBtn.Label" DefaultValue="View Archive" />
+        <bt:String id="EncryptMessageBtn.Label" DefaultValue="Encrypt Message" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="MenuLabel.Description" DefaultValue="Bastionpoint Technology email security controls." />
+        <bt:String id="QuarantinePortalBtn.Tooltip" DefaultValue="Open the quarantine portal." />
+        <bt:String id="TrustBtn.Tooltip" DefaultValue="Trust the sender of the currently selected email." />
+        <bt:String id="BlockBtn.Tooltip" DefaultValue="Block the sender of the currently selected spam/junk email." />
+        <bt:String id="ReportSpamBtn.Tooltip" DefaultValue="Report a message as Phishing/Malicious." />
+        <bt:String id="ViewArchiveBtn.Tooltip" DefaultValue="Open the email archive." />
+        <bt:String id="EncryptMessageBtn.Tooltip" DefaultValue="Encrypt the message." />
+        <bt:String id="QuarantinePortalBtn.Description" DefaultValue="Open the quarantine portal." />
+        <bt:String id="TrustBtn.Description" DefaultValue="Trust the sender of the currently selected email." />
+        <bt:String id="BlockBtn.Description" DefaultValue="Block the sender of the currently selected spam/junk email." />
+        <bt:String id="ReportSpamBtn.Description" DefaultValue="Report a message as Phishing/Malicious." />
+        <bt:String id="ViewArchiveBtn.Description" DefaultValue="Open the email archive." />
+        <bt:String id="EncryptMessageBtn.Description" DefaultValue="Encrypt the message." />
+      </bt:LongStrings>
+    </Resources>
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.3">
+          <bt:Set Name="Mailbox" />
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+              <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="msgReadGroup">
+                  <Label resid="GroupLabel" />
+                  <Control xsi:type="Menu" id="msgReadMenu">
+                    <Label resid="MenuLabel" />
+                    <Supertip>
+                      <Title resid="MenuLabel" />
+                      <Description resid="MenuLabel.Description" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="BPTIcon.16x16" />
+                      <bt:Image size="32" resid="BPTIcon.32x32" />
+                      <bt:Image size="80" resid="BPTIcon.80x80" />
+                    </Icon>
+                    <Items>
+                      <Item id="QuarantinePortalBtn">
+                        <Label resid="QuarantinePortalBtn.Label" />
+                        <Supertip>
+                          <Title resid="QuarantinePortalBtn.Label" />
+                          <Description resid="QuarantinePortalBtn.Description" />
+                        </Supertip>
+                        <Icon>
+                          <bt:Image size="16" resid="PortalIcon.16x16" />
+                          <bt:Image size="32" resid="PortalIcon.32x32" />
+                          <bt:Image size="80" resid="PortalIcon.80x80" />
+                        </Icon>
+                        <Action xsi:type="ShowTaskpane">
+                          <SourceLocation resid="QuarantinePortalBtn.Url" />
+                        </Action>
+                      </Item>
+                      <Item id="TrustBtn">
+                        <Label resid="TrustBtn.Label" />
+                        <Supertip>
+                          <Title resid="TrustBtn.Label" />
+                          <Description resid="TrustBtn.Description" />
+                        </Supertip>
+                        <Icon>
+                          <bt:Image size="16" resid="TrustIcon.16x16" />
+                          <bt:Image size="32" resid="TrustIcon.32x32" />
+                          <bt:Image size="80" resid="TrustIcon.80x80" />
+                        </Icon>
+                        <Action xsi:type="ShowTaskpane">
+                          <SourceLocation resid="TrustBtn.Url" />
+                        </Action>
+                      </Item>
+                      <Item id="BlockBtn">
+                        <Label resid="BlockBtn.Label" />
+                        <Supertip>
+                          <Title resid="BlockBtn.Label" />
+                          <Description resid="BlockBtn.Description" />
+                        </Supertip>
+                        <Icon>
+                          <bt:Image size="16" resid="BlockIcon.16x16" />
+                          <bt:Image size="32" resid="BlockIcon.32x32" />
+                          <bt:Image size="80" resid="BlockIcon.80x80" />
+                        </Icon>
+                        <Action xsi:type="ShowTaskpane">
+                          <SourceLocation resid="BlockBtn.Url" />
+                        </Action>
+                      </Item>
+                      <Item id="ReportSpamBtn">
+                        <Label resid="ReportSpamBtn.Label" />
+                        <Supertip>
+                          <Title resid="ReportSpamBtn.Label" />
+                          <Description resid="ReportSpamBtn.Description" />
+                        </Supertip>
+                        <Icon>
+                          <bt:Image size="16" resid="ReportIcon.16x16" />
+                          <bt:Image size="32" resid="ReportIcon.32x32" />
+                          <bt:Image size="80" resid="ReportIcon.80x80" />
+                        </Icon>
+                        <Action xsi:type="ShowTaskpane">
+                          <SourceLocation resid="ReportSpamBtn.Url" />
+                        </Action>
+                      </Item>
+                      <Item id="ViewArchiveBtn">
+                        <Label resid="ViewArchiveBtn.Label" />
+                        <Supertip>
+                          <Title resid="ViewArchiveBtn.Label" />
+                          <Description resid="ViewArchiveBtn.Description" />
+                        </Supertip>
+                        <Icon>
+                          <bt:Image size="16" resid="ViewArchiveIcon.16x16" />
+                          <bt:Image size="32" resid="ViewArchiveIcon.32x32" />
+                          <bt:Image size="80" resid="ViewArchiveIcon.80x80" />
+                        </Icon>
+                        <Action xsi:type="ShowTaskpane">
+                          <SourceLocation resid="ViewArchiveBtn.Url" />
+                        </Action>
+                      </Item>
+                    </Items>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="msgComposeGroup">
+                  <Label resid="EncryptMessageGroup.Label" />
+                  <Control xsi:type="Button" id="EncryptMessageBtn">
+                    <Label resid="EncryptMessageBtn.Label" />
+                    <Supertip>
+                      <Title resid="EncryptMessageBtn.Label" />
+                      <Description resid="EncryptMessageBtn.Description" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="EncryptMessageIcon.16x16" />
+                      <bt:Image size="32" resid="EncryptMessageIcon.32x32" />
+                      <bt:Image size="80" resid="EncryptMessageIcon.80x80" />
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="EncryptMessageBtn.Url" />
+                    </Action>
+                  </Control>
+                  <Control xsi:type="Button" id="QuarantinePortalBtnInCompose">
+                    <Label resid="QuarantinePortalBtn.Label" />
+                    <Supertip>
+                      <Title resid="QuarantinePortalBtn.Label" />
+                      <Description resid="QuarantinePortalBtn.Description" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="PortalIcon.16x16" />
+                      <bt:Image size="32" resid="PortalIcon.32x32" />
+                      <bt:Image size="80" resid="PortalIcon.80x80" />
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="QuarantinePortalBtn.Url" />
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+          <!--MobileMessageReadCommandSurface extension Point-->
+          <MobileFormFactor>
+            <ExtensionPoint xsi:type="MobileMessageReadCommandSurface">
+              <Group id="mobileMsgReadGroup">
+                <Label resid="GroupLabel" />
+                <Control xsi:type="MobileButton" id="QuarantinePortalBtnMobile">
+                  <Label resid="QuarantinePortalBtn.Label" />
+                  <Icon xsi:type="bt:MobileIconList">
+                    <bt:Image size="25" scale="1" resid="PortalIcon.25x25" />
+                    <bt:Image size="25" scale="2" resid="PortalIcon.25x25" />
+                    <bt:Image size="25" scale="3" resid="PortalIcon.25x25" />
+                    <bt:Image size="32" scale="1" resid="PortalIcon.32x32" />
+                    <bt:Image size="32" scale="2" resid="PortalIcon.32x32" />
+                    <bt:Image size="32" scale="3" resid="PortalIcon.32x32" />
+                    <bt:Image size="48" scale="1" resid="PortalIcon.48x48" />
+                    <bt:Image size="48" scale="2" resid="PortalIcon.48x48" />
+                    <bt:Image size="48" scale="3" resid="PortalIcon.48x48" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="QuarantinePortalBtn.Url" />
+                  </Action>
+                </Control>
+                <Control xsi:type="MobileButton" id="TrustBtnMobile">
+                  <Label resid="TrustBtn.Label" />
+                  <Icon xsi:type="bt:MobileIconList">
+                    <bt:Image size="25" scale="1" resid="TrustIcon.25x25" />
+                    <bt:Image size="25" scale="2" resid="TrustIcon.25x25" />
+                    <bt:Image size="25" scale="3" resid="TrustIcon.25x25" />
+                    <bt:Image size="32" scale="1" resid="TrustIcon.32x32" />
+                    <bt:Image size="32" scale="2" resid="TrustIcon.32x32" />
+                    <bt:Image size="32" scale="3" resid="TrustIcon.32x32" />
+                    <bt:Image size="48" scale="1" resid="TrustIcon.48x48" />
+                    <bt:Image size="48" scale="2" resid="TrustIcon.48x48" />
+                    <bt:Image size="48" scale="3" resid="TrustIcon.48x48" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="TrustBtn.Url" />
+                  </Action>
+                </Control>
+                <Control xsi:type="MobileButton" id="BlockBtnMobile">
+                  <Label resid="BlockBtn.Label" />
+                  <Icon xsi:type="bt:MobileIconList">
+                    <bt:Image size="25" scale="1" resid="BlockIcon.25x25" />
+                    <bt:Image size="25" scale="2" resid="BlockIcon.25x25" />
+                    <bt:Image size="25" scale="3" resid="BlockIcon.25x25" />
+                    <bt:Image size="32" scale="1" resid="BlockIcon.32x32" />
+                    <bt:Image size="32" scale="2" resid="BlockIcon.32x32" />
+                    <bt:Image size="32" scale="3" resid="BlockIcon.32x32" />
+                    <bt:Image size="48" scale="1" resid="BlockIcon.48x48" />
+                    <bt:Image size="48" scale="2" resid="BlockIcon.48x48" />
+                    <bt:Image size="48" scale="3" resid="BlockIcon.48x48" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="BlockBtn.Url" />
+                  </Action>
+                </Control>
+                <Control xsi:type="MobileButton" id="ReportSpamBtnMobile">
+                  <Label resid="ReportSpamBtn.Label" />
+                  <Icon xsi:type="bt:MobileIconList">
+                    <bt:Image size="25" scale="1" resid="ReportIcon.25x25" />
+                    <bt:Image size="25" scale="2" resid="ReportIcon.25x25" />
+                    <bt:Image size="25" scale="3" resid="ReportIcon.25x25" />
+                    <bt:Image size="32" scale="1" resid="ReportIcon.32x32" />
+                    <bt:Image size="32" scale="2" resid="ReportIcon.32x32" />
+                    <bt:Image size="32" scale="3" resid="ReportIcon.32x32" />
+                    <bt:Image size="48" scale="1" resid="ReportIcon.48x48" />
+                    <bt:Image size="48" scale="2" resid="ReportIcon.48x48" />
+                    <bt:Image size="48" scale="3" resid="ReportIcon.48x48" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="ReportSpamBtn.Url" />
+                  </Action>
+                </Control>
+                <Control xsi:type="MobileButton" id="ViewArchiveBtnMobile">
+                  <Label resid="ViewArchiveBtn.Label" />
+                  <Icon xsi:type="bt:MobileIconList">
+                    <bt:Image size="25" scale="1" resid="ViewArchiveIcon.25x25" />
+                    <bt:Image size="25" scale="2" resid="ViewArchiveIcon.25x25" />
+                    <bt:Image size="25" scale="3" resid="ViewArchiveIcon.25x25" />
+                    <bt:Image size="32" scale="1" resid="ViewArchiveIcon.32x32" />
+                    <bt:Image size="32" scale="2" resid="ViewArchiveIcon.32x32" />
+                    <bt:Image size="32" scale="3" resid="ViewArchiveIcon.32x32" />
+                    <bt:Image size="48" scale="1" resid="ViewArchiveIcon.48x48" />
+                    <bt:Image size="48" scale="2" resid="ViewArchiveIcon.48x48" />
+                    <bt:Image size="48" scale="3" resid="ViewArchiveIcon.48x48" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="ViewArchiveBtn.Url" />
+                  </Action>
+                </Control>
+              </Group>
+            </ExtensionPoint>
+          </MobileFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="BPTIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
+          <bt:Image id="BPTIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
+          <bt:Image id="BPTIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-128.png" />
+          <bt:Image id="PortalIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/portal-16.png" />
+          <bt:Image id="TrustIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/trust-16.png" />
+          <bt:Image id="BlockIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-16.png" />
+          <bt:Image id="ReportIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/report-16.png" />
+          <bt:Image id="ViewArchiveIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/view-archive-16.png" />
+          <bt:Image id="EncryptMessageIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/encrypt-message-16.png" />
+          <bt:Image id="PortalIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/portal-32.png" />
+          <bt:Image id="TrustIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/trust-32.png" />
+          <bt:Image id="BlockIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-32.png" />
+          <bt:Image id="ReportIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/report-32.png" />
+          <bt:Image id="ViewArchiveIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/view-archive-32.png" />
+          <bt:Image id="EncryptMessageIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/encrypt-message-32.png" />
+          <bt:Image id="PortalIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/portal-80.png" />
+          <bt:Image id="TrustIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/trust-80.png" />
+          <bt:Image id="BlockIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-80.png" />
+          <bt:Image id="ReportIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/report-80.png" />
+          <bt:Image id="ViewArchiveIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/view-archive-80.png" />
+          <bt:Image id="EncryptMessageIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/encrypt-message-80.png" />
+          <bt:Image id="PortalIcon.25x25" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/portal-25.png" />
+          <bt:Image id="TrustIcon.25x25" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/trust-25.png" />
+          <bt:Image id="BlockIcon.25x25" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-25.png" />
+          <bt:Image id="ReportIcon.25x25" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/report-25.png" />
+          <bt:Image id="ViewArchiveIcon.25x25" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/view-archive-25.png" />
+          <bt:Image id="PortalIcon.48x48" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/portal-48.png" />
+          <bt:Image id="TrustIcon.48x48" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/trust-48.png" />
+          <bt:Image id="BlockIcon.48x48" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-48.png" />
+          <bt:Image id="ReportIcon.48x48" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/report-48.png" />
+          <bt:Image id="ViewArchiveIcon.48x48" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/view-archive-48.png" />
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="TrustBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=trust" />
+          <bt:Url id="BlockBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=block" />
+          <bt:Url id="ReportSpamBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=report&amp;reportSpamEmailAddress=report@report.spambrella.com" />
+          <bt:Url id="QuarantinePortalBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=quarantinePortal" />
+          <bt:Url id="ViewArchiveBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=viewArchive" />
+          <bt:Url id="EncryptMessageBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=encryptMessage" />
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="GroupLabel" DefaultValue="Report to Bastionpoint" />
+          <bt:String id="EncryptMessageGroup.Label" DefaultValue="Report to Bastionpoint" />
+          <bt:String id="MenuLabel" DefaultValue="Report to Bastionpoint" />
+          <bt:String id="QuarantinePortalBtn.Label" DefaultValue="Quarantine Portal" />
+          <bt:String id="TrustBtn.Label" DefaultValue="Trust Sender" />
+          <bt:String id="BlockBtn.Label" DefaultValue="Block Sender (SPAM)" />
+          <bt:String id="ReportSpamBtn.Label" DefaultValue="Report Phishing/Malicious" />
+          <bt:String id="ViewArchiveBtn.Label" DefaultValue="View Archive" />
+          <bt:String id="EncryptMessageBtn.Label" DefaultValue="Encrypt Message" />
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="MenuLabel.Description" DefaultValue="Bastionpoint Technology email security controls." />
+          <bt:String id="QuarantinePortalBtn.Tooltip" DefaultValue="Open the quarantine portal." />
+          <bt:String id="TrustBtn.Tooltip" DefaultValue="Trust the sender of the currently selected email." />
+          <bt:String id="BlockBtn.Tooltip" DefaultValue="Block the sender of the currently selected spam/junk email." />
+          <bt:String id="ReportSpamBtn.Tooltip" DefaultValue="Report a message as Phishing/Malicious." />
+          <bt:String id="ViewArchiveBtn.Tooltip" DefaultValue="Open the email archive." />
+          <bt:String id="EncryptMessageBtn.Tooltip" DefaultValue="Encrypt the message." />
+          <bt:String id="QuarantinePortalBtn.Description" DefaultValue="Open the quarantine portal." />
+          <bt:String id="TrustBtn.Description" DefaultValue="Trust the sender of the currently selected email." />
+          <bt:String id="BlockBtn.Description" DefaultValue="Block the sender of the currently selected spam/junk email." />
+          <bt:String id="ReportSpamBtn.Description" DefaultValue="Report a message as Phishing/Malicious." />
+          <bt:String id="ViewArchiveBtn.Description" DefaultValue="Open the email archive." />
+          <bt:String id="EncryptMessageBtn.Description" DefaultValue="Encrypt the message." />
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
