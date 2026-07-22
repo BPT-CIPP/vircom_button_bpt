@@ -177,9 +177,6 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="BPTIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
-        <bt:Image id="BPTIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
-        <bt:Image id="BPTIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-128.png" />
         <bt:Image id="PortalIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/portal-16.png" />
         <bt:Image id="TrustIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/trust-16.png" />
         <bt:Image id="BlockIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-16.png" />
@@ -198,6 +195,9 @@
         <bt:Image id="ReportIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/report-80.png" />
         <bt:Image id="ViewArchiveIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/view-archive-80.png" />
         <bt:Image id="EncryptMessageIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/encrypt-message-80.png" />
+        <bt:Image id="BPTIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
+        <bt:Image id="BPTIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
+        <bt:Image id="BPTIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-128.png" />
       </bt:Images>
       <bt:Urls>
         <bt:Url id="TrustBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=trust" />
@@ -220,18 +220,12 @@
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="MenuLabel.Description" DefaultValue="Bastionpoint Technology email security controls." />
-        <bt:String id="QuarantinePortalBtn.Tooltip" DefaultValue="Open the quarantine portal." />
-        <bt:String id="TrustBtn.Tooltip" DefaultValue="Trust the sender of the currently selected email." />
-        <bt:String id="BlockBtn.Tooltip" DefaultValue="Block the sender of the currently selected spam/junk email." />
-        <bt:String id="ReportSpamBtn.Tooltip" DefaultValue="Report a message as Phishing/Malicious." />
-        <bt:String id="ViewArchiveBtn.Tooltip" DefaultValue="Open the email archive." />
-        <bt:String id="EncryptMessageBtn.Tooltip" DefaultValue="Encrypt the message." />
-        <bt:String id="QuarantinePortalBtn.Description" DefaultValue="Open the quarantine portal." />
-        <bt:String id="TrustBtn.Description" DefaultValue="Trust the sender of the currently selected email." />
-        <bt:String id="BlockBtn.Description" DefaultValue="Block the sender of the currently selected spam/junk email." />
-        <bt:String id="ReportSpamBtn.Description" DefaultValue="Report a message as Phishing/Malicious." />
-        <bt:String id="ViewArchiveBtn.Description" DefaultValue="Open the email archive." />
-        <bt:String id="EncryptMessageBtn.Description" DefaultValue="Encrypt the message." />
+        <bt:String id="QuarantinePortalBtn.Description" DefaultValue="Opens the Proofpoint Essentials quarantine portal." />
+        <bt:String id="TrustBtn.Description" DefaultValue="Adds the sender's address to your safe-senders list." />
+        <bt:String id="BlockBtn.Description" DefaultValue="Adds the sender's address to your blocked-senders list." />
+        <bt:String id="ReportSpamBtn.Description" DefaultValue="Block the sender of the currently selected spam/junk email." />
+        <bt:String id="ViewArchiveBtn.Description" DefaultValue="Opens the email archive portal." />
+        <bt:String id="EncryptMessageBtn.Description" DefaultValue="Adds the encrypt tag to the message subject." />
       </bt:LongStrings>
     </Resources>
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
@@ -243,7 +237,7 @@
       <Hosts>
         <Host xsi:type="MailHost">
           <DesktopFormFactor>
-              <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="msgReadGroup">
                   <Label resid="GroupLabel" />
@@ -474,9 +468,6 @@
       </Hosts>
       <Resources>
         <bt:Images>
-          <bt:Image id="BPTIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
-          <bt:Image id="BPTIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
-          <bt:Image id="BPTIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-128.png" />
           <bt:Image id="PortalIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/portal-16.png" />
           <bt:Image id="TrustIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/trust-16.png" />
           <bt:Image id="BlockIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-16.png" />
@@ -505,6 +496,9 @@
           <bt:Image id="BlockIcon.48x48" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/block-48.png" />
           <bt:Image id="ReportIcon.48x48" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/report-48.png" />
           <bt:Image id="ViewArchiveIcon.48x48" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/view-archive-48.png" />
+          <bt:Image id="BPTIcon.16x16" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
+          <bt:Image id="BPTIcon.32x32" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-64.png" />
+          <bt:Image id="BPTIcon.80x80" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/assets/reporttobastionpoint/icon-128.png" />
         </bt:Images>
         <bt:Urls>
           <bt:Url id="TrustBtn.Url" DefaultValue="https://outlook-addin-spambrella.azurewebsites.net/addin/taskpane.html?action=trust" />
@@ -527,18 +521,18 @@
         </bt:ShortStrings>
         <bt:LongStrings>
           <bt:String id="MenuLabel.Description" DefaultValue="Bastionpoint Technology email security controls." />
-          <bt:String id="QuarantinePortalBtn.Tooltip" DefaultValue="Open the quarantine portal." />
-          <bt:String id="TrustBtn.Tooltip" DefaultValue="Trust the sender of the currently selected email." />
-          <bt:String id="BlockBtn.Tooltip" DefaultValue="Block the sender of the currently selected spam/junk email." />
-          <bt:String id="ReportSpamBtn.Tooltip" DefaultValue="Report a message as Phishing/Malicious." />
-          <bt:String id="ViewArchiveBtn.Tooltip" DefaultValue="Open the email archive." />
-          <bt:String id="EncryptMessageBtn.Tooltip" DefaultValue="Encrypt the message." />
-          <bt:String id="QuarantinePortalBtn.Description" DefaultValue="Open the quarantine portal." />
-          <bt:String id="TrustBtn.Description" DefaultValue="Trust the sender of the currently selected email." />
-          <bt:String id="BlockBtn.Description" DefaultValue="Block the sender of the currently selected spam/junk email." />
-          <bt:String id="ReportSpamBtn.Description" DefaultValue="Report a message as Phishing/Malicious." />
-          <bt:String id="ViewArchiveBtn.Description" DefaultValue="Open the email archive." />
-          <bt:String id="EncryptMessageBtn.Description" DefaultValue="Encrypt the message." />
+          <bt:String id="QuarantinePortalBtn.Tooltip" DefaultValue="Redirect ot the Proofpoint Essentials instance." />
+          <bt:String id="TrustBtn.Tooltip" DefaultValue="Add email address to the safe senders." />
+          <bt:String id="BlockBtn.Tooltip" DefaultValue="Add email address to the blocked senders." />
+          <bt:String id="ReportSpamBtn.Tooltip" DefaultValue="Report spam message." />
+          <bt:String id="ViewArchiveBtn.Tooltip" DefaultValue="Redirect to the archive url." />
+          <bt:String id="EncryptMessageBtn.Tooltip" DefaultValue="Set email subject with encrypt tag." />
+          <bt:String id="QuarantinePortalBtn.Description" DefaultValue="Redirect ot the Proofpoint Essentials instance." />
+          <bt:String id="TrustBtn.Description" DefaultValue="Add email address to the safe senders." />
+          <bt:String id="BlockBtn.Description" DefaultValue="Add email address to the blocked senders." />
+          <bt:String id="ReportSpamBtn.Description" DefaultValue="Block the sender of the currently selected spam/junk email." />
+          <bt:String id="ViewArchiveBtn.Description" DefaultValue="Redirect to the archive url." />
+          <bt:String id="EncryptMessageBtn.Description" DefaultValue="Set email subject with encrypt tag." />
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
